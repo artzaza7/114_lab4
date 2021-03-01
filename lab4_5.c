@@ -2,82 +2,63 @@
 int main()
 {
     int number;
-    int wow[2][2]={{1,2},{3,4}};
-    int save[2][2]={{1,2},{3,4}};
+    int l[4]={1,0,0,0};
+    int temp,temp2;
     scanf("%d",&number);
-    fflush(stdin);
-    int check=0;
-    char view[number][50];
+    char n[number][50];
     for(int i=0;i<number;i++)
     {
-        scanf("%s",&view[i]);
-        fflush(stdin);
-    }
-    for(int i=0;i<number;i++)
-    {
-        if(check==0)
+        scanf("%s",n[i]);
+        for(int j=0;n[i][j]!='\0';j++)
         {
-            for(int j=0;j<50;j++)
+            switch (n[i][j])
             {
-                if(view[i][j]=='\0')
-                {
-                    check=1;
-                    break;
-                }
-                else
-                {
-                    if(view[i][j]=='A'||view[i][j]=='a')
-                    {
-                        int temp=wow[0][1];
-                        wow[0][1]=wow[1][0];
-                        wow[1][0]=temp;
-                    }
-                    if(view[i][j]=='B'||view[i][j]=='b')
-                    {
-                        int temp=wow[0][0];
-                        wow[0][0]=wow[1][1];
-                        wow[1][1]=temp;
-                    }
-                    if(view[i][j]=='C'||view[i][j]=='c')
-                    {
-                        int temp1=wow[0][0],temp2=wow[0][1];
-                        wow[0][0]=wow[1][0];
-                        wow[0][1]=wow[1][1];
-                        wow[1][0]=temp1;
-                        wow[1][1]=temp2;
-                    }
-                    if(view[i][j]=='D'||view[i][j]=='d')
-                    {
-                        int temp1=wow[0][0],temp2=wow[1][0];
-                        wow[0][0]=wow[0][1];
-                        wow[1][0]=wow[1][1];
-                        wow[0][1]=temp1;
-                        wow[1][1]=temp2;
-                    }
-                    if(view[i][j]=='E'||view[i][j]=='e')
-                    {
-                        int temp1=wow[0][0],temp2=wow[0][1];
-                        wow[0][0]=wow[1][1];
-                        wow[0][1]=wow[1][0];
-                        wow[1][1]=temp1;
-                        wow[1][0]=temp2;
-                    }
-                }
+            case 'A':
+                temp=l[1];
+                l[1]=l[2];
+                l[2]=temp;
+                break;
+            case 'B':
+                temp=l[0];
+                l[0]=l[3];
+                l[3]=temp;
+                break;
+            case 'C':
+                temp=l[0];
+                l[0]=l[2];
+                l[2]=temp;
+                temp2=l[1];
+                l[1]=l[3];
+                l[3]=temp2;
+                break;
+            case 'D':
+                temp=l[0];
+                l[0]=l[1];
+                l[1]=temp;
+                temp2=l[3];
+                l[3]=l[2];
+                l[2]=temp2;
+                break;
+            case 'E':
+                temp=l[0];
+                l[0]=l[3];
+                l[3]=temp;
+                temp2=l[1];
+                l[1]=l[2];
+                l[2]=temp2;
+                break;
             }
         }
-        if(check==1)
+        for(int j=0;j<4;j++)
         {
-            printf("%d\n",wow[0][0]);
-            for(int i=0;i<2;i++)
+            if(l[j]==1)
             {
-                for(int j=0;j<2;j++)
-                {
-                    wow[i][j]=save[i][j];
-                }
+                printf("%d\n",j+1);
+                l[j]=0;
+                break;
             }
-            check=0;
-            continue;
         }
+        l[0]=1;
     }
     return 0;
 }
