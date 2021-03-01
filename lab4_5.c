@@ -2,8 +2,8 @@
 int main()
 {
     int number;
-    int wow[2][2]={1,2,3,4};
-    int save[2][2]={1,2,3,4};
+    int wow[2][2]={{1,2},{3,4}};
+    int save[2][2]={{1,2},{3,4}};
     scanf("%d",&number);
     fflush(stdin);
     int check=0;
@@ -26,19 +26,19 @@ int main()
                 }
                 else
                 {
-                    if(view[i][j]=='A')
+                    if(view[i][j]=='A'||view[i][j]=='a')
                     {
                         int temp=wow[0][1];
                         wow[0][1]=wow[1][0];
                         wow[1][0]=temp;
                     }
-                    if(view[i][j]=='B')
+                    if(view[i][j]=='B'||view[i][j]=='b')
                     {
                         int temp=wow[0][0];
                         wow[0][0]=wow[1][1];
                         wow[1][1]=temp;
                     }
-                    if(view[i][j]=='C')
+                    if(view[i][j]=='C'||view[i][j]=='c')
                     {
                         int temp1=wow[0][0],temp2=wow[0][1];
                         wow[0][0]=wow[1][0];
@@ -46,7 +46,7 @@ int main()
                         wow[1][0]=temp1;
                         wow[1][1]=temp2;
                     }
-                    if(view[i][j]=='D')
+                    if(view[i][j]=='D'||view[i][j]=='d')
                     {
                         int temp1=wow[0][0],temp2=wow[1][0];
                         wow[0][0]=wow[0][1];
@@ -54,7 +54,7 @@ int main()
                         wow[0][1]=temp1;
                         wow[1][1]=temp2;
                     }
-                    if(view[i][j]=='E')
+                    if(view[i][j]=='E'||view[i][j]=='e')
                     {
                         int temp1=wow[0][0],temp2=wow[0][1];
                         wow[0][0]=wow[1][1];
