@@ -1,11 +1,18 @@
 #include<stdio.h>
+#include<string.h>
 int main()
 {
     char name[200];
     gets(name);
     char new[20];
+    int len=strlen(name);
     int index=0;
-    for(int i=0;i<200;i++)
+    if (len<=0)
+    {
+        puts(name);
+    }
+    else{
+    for(int i=0;i<len+1;i++)
     {
         if (i==0)
         {
@@ -24,6 +31,7 @@ int main()
             index++;
         }
         }
+    }
     }
     new[index++]='\0';
     puts(new);
