@@ -1,39 +1,23 @@
 #include<stdio.h>
-#include<string.h>
 int main()
 {
     char name[200];
-    gets(name);
-    char new[20];
-    int len=strlen(name);
-    int index=0;
-    if (len<=0)
+    char new[200];
+    scanf("%s",name);
+    int j=1;
+    new[0]=name[0];
+    for(int i=0;i<sizeof name;i++)
     {
-        puts(name);
-    }
-    else{
-    for(int i=0;i<len+1;i++)
-    {
-        if (i==0)
+        if(name[i]=='\0')
         {
-            new[index]=name[i];
-            index++;
-        } 
-        else 
-        {
-            if(name[i]==new[index-1])
-        {
-            continue;
+            break;
         }
-        else
+        if(name[i]!=name[i+1])
         {
-            new[index]=name[i];
-            index++;
-        }
+            new[j]=name[i+1];
+            j++;
         }
     }
-    }
-    new[index++]='\0';
-    puts(new);
+    printf("%s",new);
     return 0;
 }
